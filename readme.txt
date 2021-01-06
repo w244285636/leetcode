@@ -1,2 +1,2 @@
-welcome to my github space£¡
+Welcome to my github space£¡
 This is to learn the algorithm!
