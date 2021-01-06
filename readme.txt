@@ -1,2 +1,2 @@
-This is to learn the algorithm
-My Email wukai6038@163.com
+welcome to my github space£¡
+This is to learn the algorithm!
