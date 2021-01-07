@@ -2,6 +2,7 @@ package cn.wukai;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 
@@ -24,6 +25,16 @@ import java.util.List;
 
 public class PostorderTraversal {
 
+	public static void main(String[] args) {
+		TreeNode root = new TreeNode(1);
+		root.right = new TreeNode(2);
+		root.right.left = new TreeNode(3);
+		List<Integer> ans = helper(root);
+		for (Integer integer : ans) {
+			System.out.print(integer + " ");
+		}
+	}
+	
 	public static List<Integer> solution(TreeNode root){
 		List<Integer> ans = new ArrayList<>();
 		helper(root,ans);
@@ -45,7 +56,28 @@ public class PostorderTraversal {
 	/*
 	 * 迭代方法
 	 */
-	private static void helper(TreeNode root) {
-		
+	private static List<Integer> helper(TreeNode root) {
+		List<Integer> ans = new ArrayList<>();
+		if (root == null) {
+			return ans;
+		}
+		Stack<TreeNode> stack = new Stack<>();
+		TreeNode pre = null;
+		while(root != null || !stack.isEmpty()) {
+			while(root != null) {
+				stack.push(root);
+				root = root.left;
+			}
+			root = stack.pop();
+			if (root.right == null || root.right == pre) {
+				ans.add(root.val);
+				pre = root;
+				root = null;
+			}else {
+				stack.push(root);
+				root = root.right;
+			}
+		}
+		return ans;
 	}
 }
