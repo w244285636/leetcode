@@ -30,6 +30,9 @@ public class PostorderTraversal {
 		return ans;
 	}
 	
+	/*
+	 * 递归方法
+	 */
 	private static void helper(TreeNode root,List<Integer> ans) {
 		if (root == null) {
 			return ;
@@ -39,4 +42,10 @@ public class PostorderTraversal {
 		ans.add(root.val);
 	}
 	
+	/*
+	 * 迭代方法
+	 */
+	private static void helper(TreeNode root) {
+		
+	}
 }
